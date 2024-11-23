@@ -19,7 +19,7 @@ Pastikan Anda sudah menginstal alat berikut di komputer Anda:
    
    Clone repository ini dengan perintah berikut:
    ```bash
-   git clone https://gitlab.com/pindra21/school-system-information-backend.git
+   git clone https://gitlab.com/pindra21/system-information-backend.git
    ```
 
 2. **Masuk ke Direktori Proyek**
