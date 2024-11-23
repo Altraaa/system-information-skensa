@@ -22,4 +22,13 @@ class Classroom extends Model
     {
         return $this->hasMany(Schedule::class);
     }
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    public function getCapacityAttribute()
+    {
+        return $this->students()->count();
+    }
 }
