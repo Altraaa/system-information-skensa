@@ -34,17 +34,20 @@ class ScheduleResource extends Resource
                 ->relationship('teacher', 'name')
                 ->required()
                 ->label('Teacher'),
-            Forms\Components\Select::make('room_id')
-                ->relationship('room', 'name')
-                ->required()
-                ->label('Room'),
-            Forms\Components\TextInput::make('day')
+                Forms\Components\Select::make('day')
+                ->options([
+                    'Senin' => 'Senin',
+                    'Selasa' => 'Selasa',
+                    'Rabu' => 'Rabu',
+                    'Kamis' => 'Kamis',
+                    'Jumat' => 'Jumat',
+                ])
                 ->required()
                 ->label('Day'),
-            Forms\Components\TimePicker::make('time_start')
+            Forms\Components\TimePicker::make('start_time')
                 ->required()
                 ->label('Start Time'),
-            Forms\Components\TimePicker::make('time_end')
+            Forms\Components\TimePicker::make('end_time')
                 ->required()
                 ->label('End Time'),
         ]);
@@ -58,8 +61,8 @@ class ScheduleResource extends Resource
                 Tables\Columns\TextColumn::make('subject.name')->label('Subject'),
                 Tables\Columns\TextColumn::make('teacher.name')->label('Teacher'),
                 Tables\Columns\TextColumn::make('day')->label('Day'),
-                Tables\Columns\TextColumn::make('time_start')->label('Start Time'),
-                Tables\Columns\TextColumn::make('time_end')->label('End Time'),
+                Tables\Columns\TextColumn::make('start_time')->label('Start Time'),
+                Tables\Columns\TextColumn::make('end_time')->label('End Time'),
             ])
             ->filters([]);
     }
