@@ -12,9 +12,11 @@ class Teacher extends Model
     protected $fillable = [
         'name',
         'email',
+        'subject_id',
     ];
-    public function subjects()
+
+    public function subject()
     {
-        return $this->hasMany(Subject::class);
+        return $this->belongsTo(Subject::class);
     }
 }
