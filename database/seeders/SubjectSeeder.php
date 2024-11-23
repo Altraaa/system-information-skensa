@@ -13,7 +13,7 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
-        Subject::create(['name' => 'Matematika', 'teacher_id' => 1]);
-        Subject::create(['name' => 'Bahasa Inggris', 'teacher_id' => 2]);
+        Subject::create(['name' => 'Matematika', 'description' => 'Pelajaran Matematika']);
+        Subject::create(['name' => 'Bahasa Inggris', 'description' => 'Pelajaran Bahasa Inggris']);
     }
 }

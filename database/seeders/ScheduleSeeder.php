@@ -13,23 +13,17 @@ class ScheduleSeeder extends Seeder
 {
     public function run()
     {
-        // Ambil data dari tabel yang sudah ada
         $classrooms = Classroom::all();
         $subjects = Subject::all();
         $teachers = Teacher::all();
 
-        // Hari-hari yang tersedia
         $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
-        // Loop untuk setiap kelas
         foreach ($classrooms as $classroom) {
-            // Setiap kelas memiliki jadwal untuk setiap hari
             foreach ($days as $day) {
-                // Ambil secara acak subject, teacher, dan room
                 $subject = $subjects->random();
                 $teacher = $teachers->random();
 
-                // Waktu mulai dan selesai (acak dalam rentang waktu tertentu)
                 $timeStart = now()->setTime(rand(7, 12), 0); // Rentang waktu antara jam 7:00 - 11:00
                 $timeEnd = $timeStart->copy()->addHours(2);  // Tambah durasi 2 jam
 
