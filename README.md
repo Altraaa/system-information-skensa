@@ -1,5 +1,5 @@
 
-# Proyek Laravel - [Nama Proyek Anda]
+# Proyek Laravel - [System Information]
 
 Ini adalah aplikasi Laravel yang di-clone dari Git. Ikuti langkah-langkah di bawah untuk menjalankan proyek ini secara lokal.
 
