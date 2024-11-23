@@ -25,9 +25,8 @@ class SubjectResource extends Resource
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->label('Subject Name'),
-            Forms\Components\TextInput::make('teacher_id')
-                ->required()
-                ->numeric(),
+            Forms\Components\Textarea::make('description')
+                ->label('Description'),
         ]);
     }
 
@@ -37,8 +36,7 @@ class SubjectResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('teacher_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('description')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
