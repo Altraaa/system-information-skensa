@@ -12,14 +12,15 @@ class Subject extends Model
     protected $fillable = [
         'name',
         'description',
-        'teacher_id',
     ];
-    public function teacher()
-    {
-        return $this->belongsTo(Teacher::class);
-    }
+
     public function schedules()
     {
         return $this->hasMany(Schedule::class);
+    }
+
+    public function classrooms()
+    {
+        return $this->hasMany(Classroom::class);
     }
 }
