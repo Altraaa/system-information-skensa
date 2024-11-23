@@ -36,6 +36,9 @@ class ClassroomResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Classroom Name'),
                 Tables\Columns\TextColumn::make('description')->label('Description'),
+                Tables\Columns\TextColumn::make('students_count')
+                    ->label('Quantity of Students')
+                    ->counts('students'),
             ])
             ->filters([]);
     }
