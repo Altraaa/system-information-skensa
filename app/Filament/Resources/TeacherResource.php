@@ -29,6 +29,10 @@ class TeacherResource extends Resource
                 ->email()
                 ->label('Email')
                 ->required(),
+            Forms\Components\Select::make('subject_id')
+                ->label('Subject')
+                ->relationship('subject', 'name')
+                ->required(),
         ]);
     }
 
@@ -38,6 +42,14 @@ class TeacherResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Teacher Name'),
                 Tables\Columns\TextColumn::make('email')->label('Email'),
+                Tables\Columns\TextColumn::make('subject.name')
+                    ->label('Subject')
+                    ->sortable()
+                    ->searchable(),
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->filters([]);
     }
