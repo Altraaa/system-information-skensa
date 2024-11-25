@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Hubungan dengan tabel users
+            $table->string('nip')->unique();
             $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
-            $table->string('nip')->unique(); // NIP guru
             $table->timestamps();
         });
     }
