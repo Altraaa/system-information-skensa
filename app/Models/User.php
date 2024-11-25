@@ -10,7 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
     /**
@@ -21,7 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
+        'role',
     ];
 
     /**
@@ -46,8 +47,35 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Relasi dengan tabel Classroom
+     */
     public function classroom()
     {
         return $this->belongsTo(Classroom::class);
     }
+
+    /**
+     * Relasi dengan tabel Student
+     */
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    /**
+     * Relasi dengan tabel Teacher
+     */
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
+
+
+    /**
+     * Menentukan role dari user
+     */
+
 }
