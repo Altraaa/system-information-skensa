@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class Subject extends Model
 {
@@ -22,5 +23,10 @@ class Subject extends Model
     public function classrooms()
     {
         return $this->hasMany(Classroom::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Tasks::class);
     }
 }
