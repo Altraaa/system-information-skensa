@@ -30,18 +30,18 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('nis')
+                    ->required()
+                    ->unique(ignoreRecord: true),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 Select::make('classroom_id')
                     ->relationship('classroom', 'name')
                     ->required(),
-                TextInput::make('absen')
+                TextInput::make('attendance_number')
                     ->numeric()
                     ->required(),
-                TextInput::make('nis')
-                    ->required()
-                    ->unique(ignoreRecord: true),
             ]);
     }
 
@@ -49,6 +49,9 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('nis')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('name')
                     ->sortable()
                     ->searchable(),
@@ -56,15 +59,8 @@ class StudentResource extends Resource
                     ->label('Classroom')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('absen')
+                TextColumn::make('attendance_number')
                     ->label('Attendance Number')
-                    ->sortable(),
-                TextColumn::make('nis')
-                    ->sortable()
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->label('Created At')
-                    ->dateTime()
                     ->sortable(),
             ])
             ->filters([
