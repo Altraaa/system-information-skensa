@@ -10,10 +10,11 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Hubungan dengan tabel users
+            $table->string('nis')->unique();
             $table->string('name');
-            $table->string('nis')->unique(); // NIS siswa
-            $table->foreignId('classroom_id')->constrained()->onDelete('cascade'); // Hubungan dengan kelas
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('classroom_id')->constrained()->onDelete('cascade');
+            $table->integer('attendance_number');
             $table->timestamps();
         });
     }
